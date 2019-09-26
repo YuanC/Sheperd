@@ -9,13 +9,13 @@ public class DogController : MonoBehaviour
     public float jump_timer = 1.2f;
     [SerializeField]
     private float can_jump = 0f;
-    Animator anim;
-    Rigidbody rb;
+    public Animator anim;
+    public Rigidbody rb;
 
     void Start()
     {
         // anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
+        // rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -44,7 +44,7 @@ public class DogController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && Time.time > can_jump)
         {
-            rb.AddForce(0, jump_force, 0);
+            // rb.AddForce(0, jump_force, 0);
             can_jump = Time.time + jump_timer;
             // anim.SetTrigger("jump");
         }
