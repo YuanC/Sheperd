@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class DogController : MonoBehaviour
 {
@@ -23,7 +22,7 @@ public class DogController : MonoBehaviour
     {
         MoveDog();
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z)) // this allows barking every frame, cooldown will be implemented in the future
         {
             Bark();
         }
@@ -31,7 +30,7 @@ public class DogController : MonoBehaviour
 
     private void Bark()
     {
-        print("BORK BORK");
+        print("BARK BARK");
         EventManager.TriggerEvent("BARK");
     }
 
