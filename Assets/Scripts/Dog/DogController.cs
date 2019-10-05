@@ -4,26 +4,37 @@ using UnityEngine;
 
 public class DogController : MonoBehaviour
 {
-    public float movement_speed = 3;
-    public float jump_force = 300;
-    public float jump_timer = 1.2f;
-    [SerializeField]
-    private float can_jump = 0f;
-    public Animator anim;
-    public Rigidbody rb;
+    [SerializeField] float movement_speed = 3;
+    [SerializeField] float jump_force = 300;
+    [SerializeField] float jump_timer = 1.2f;
+    [SerializeField] float can_jump = 0f;
+    [SerializeField] Animator anim;
+    [SerializeField] Rigidbody rb;
+    [SerializeField] Transform mouth;
 
-    void Start()
+    private void Start()
     {
         // anim = GetComponent<Animator>();
         // rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    private void Update()
     {
         MoveDog();
+
+        if (Input.GetKeyDown(KeyCode.Z)) // this allows barking every frame, cooldown will be implemented in the future
+        {
+            Bark();
+        }
     }
 
-    void MoveDog()
+    private void Bark()
+    {
+        print("BARK BARK");
+        EventManager.TriggerEvent("BARK");
+    }
+
+    private void MoveDog()
     {
         float move_horizontal = Input.GetAxisRaw("Horizontal");
         float move_vertical = Input.GetAxisRaw("Vertical");
